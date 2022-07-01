@@ -1,0 +1,137 @@
+/* fix jquery.mCustomScrollbar height */
+#example,
+#beaconList,
+#eventList,
+#gatewayList,
+#loactionList,
+#trackingGateway,
+#trackingMember,
+#data_user_wrapper {
+	/*display: block;*/
+	/*height: 100%;*/
+	/*width: 100% !important;*/
+}
+
+body,
+form,
+label,
+.modal-body ul,
+.modal-body li,
+[class*=col],
+#content,
+.navbar,
+.title,
+.have-title,
+.no-title,
+.aaaa {
+	/*box-shadow: inset 0 0 0 1px red;*/
+}
+
+#trackingMember-id .list-unstyled li,
+#trackingMember-id .list-unstyled li span,
+#trackingMember-id .list-unstyled li p {
+	/*box-shadow: inset 0 0 0 1px green;*/
+}
+
+.form-group,
+p,
+span,
+input {
+	/*box-shadow: inset 0 0 0 1px red;*/
+}
+
+
+table tbody .odd:first-child .btn-outline-on:hover {
+	background-color: #26bf26;
+	color: #000;
+}
+
+table tbody .odd:first-child .btn-outline-on {
+	background-color: #26bf2630;
+	box-shadow: inset 0 0 0 1px #26bf26 !important;
+	color: #26bf26;
+}
+
+table tbody .odd:last-child .btn-outline-off:hover,
+table tbody .odd:nth-last-child(2) .btn-outline-off:hover {
+	background-color: #7c90a3;
+	color: #000;
+}
+
+table tbody .odd:last-child .btn-outline-off,
+table tbody .odd:nth-last-child(2) .btn-outline-off {
+	background-color: #8ca2b830;
+	box-shadow: inset 0 0 0 1px #7c90a3 !important;
+	color: #7c90a3;
+}
+
+table tbody .even .btn-outline-auto:hover {
+	background-color: #ffb726;
+	color: #000;
+}
+
+table tbody .even .btn-outline-auto {
+	background-color: #ffb72630;
+	box-shadow: inset 0 0 0 1px #ffb726 !important;
+	color: #ffb726;
+}
+
+/*狀態有啟動 class 加入 acive*/
+#gatewaySwitch-id .odd:first-child + tr .light-status td:nth-child(2):before,
+#gatewaySwitch-id .even + tr .light-status:nth-child(2) td:nth-child(2):before {
+	background-color: #26bf26;
+}
+
+/*LiveMap Gateway 座標*/
+#liveMap-id .radar:nth-child(2) { left:59%; top:20%; }
+#liveMap-id .radar:nth-child(3) { left:39%; top:16%; }
+#liveMap-id .radar:nth-child(4) { left:28%; top:32%; }
+#liveMap-id .radar:nth-child(5) { left:85%; top:50%; }
+#liveMap-id .radar:nth-child(6) { left:14%; top:26%; }
+#liveMap-id .radar:nth-child(7) { left:68%; top:60%; }
+#liveMap-id .radar:nth-child(8) { left:50%; top:40%; }
+#liveMap-id .radar:nth-child(9) { left:78%; top:28%; }
+
+/*--------------------------------------------------------*/
+
+/*#gatewaySwitch-id td.details-control {
+	display: grid;
+	align-items: center;
+	width: 16px;
+	height: 16px;
+	padding: 15px;
+	cursor: pointer;
+	transition: all .3s ease !important;
+}
+
+#gatewaySwitch-id tr.shown td.details-control {
+	width: 18px;
+	height: 18px;
+	padding: 14px;
+}
+
+
+
+#gatewaySwitch-id td.details-control:after {
+	margin: -17px 0px 0px 6px;
+	transform: rotate(-45deg);
+	margin-top: -75%;
+}*/
+
+
+/*#gatewaySwitch-id td.details-control:hover,
+#gatewaySwitch-id td.details-control:hover,
+#gatewaySwitch-id tr.shown td.details-control:hover,
+#gatewaySwitch-id tr.shown td.details-control:hover {
+	padding-top: 5px;
+}*/
+
+/*#liveMap-id .uuu,*/
+/*#liveMap-id:before {
+	content: "";
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	box-shadow: inset 0 0 0 2px red;
+}*/

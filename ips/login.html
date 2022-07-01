@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Login</title>
+	<!-- favorite icon -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Bootstrap DateTimePicker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker3.min.css">
+	<!-- Bootstrap DataTable -->
+	<link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/fontawesome.all.css">
+	<!-- jQuery custom content scroller -->
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/temp.css">
+</head>
+
+<body>
+	<div id="login-id" class="wrapper">
+		<!-- Header Navigation -->
+		<div id="content">
+			<div class="navbar navbar-expand-lg navbar-light justify-content-between">
+				<a class="navbar-brand" href="http://www.shuttle.com/">
+					<svg viewBox="0 0 250 45">
+						<g>
+							<path id="logo" style="fill:#ffd57f;" d="M30.1,0.6c5.5,0,11.2,0.8,13.4,1.1l-1.5,5.8C40,6.7,34.4,4.7,28,4.7c-5.3,0-9.6,2.2-10.4,5.3c-2.4,9,25.7,8.7,22.1,21.9c-2.4,8.9-13,12.4-25,12.4c-6.7,0-13-1.1-14.7-1.6l1.8-6.6c2.4,1.1,8.6,3.7,15.6,3.7c6.2,0,11.2-1.8,12.3-6.1c2.6-9.6-25.6-9.1-22-22.3C9.5,4.6,17.7,0.6,30.1,0.6zM169.9,34.4l4.5-16.8h11.2l0.8-3.2h-11.2l2.9-10.7l-9.7,3.7l-1.9,6.9l-15.5,0l2.9-10.7l-9.7,3.7l-1.9,6.9h-6.6l-0.9,3.2h6.6l-5.2,19.3c-1.5,5.7,2.7,7.5,10.9,7.5c2,0,4.3-0.1,6.2-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5c-5.6,0-5.7-2.1-4.5-6.5l4.5-16.8l15.5,0l-5.2,19.3c-1.5,5.7,2.8,7.5,11,7.5c2,0,4.3-0.1,6.1-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5C168.7,40.9,168.7,38.8,169.9,34.4zM117.5,26.6c-1,3.6-6,13.1-14.6,13.1c-4.4,0-4.3-3.4-3.3-7l4.9-18.3h-8.8l-5.7,21.3c-1.2,4.3,0.8,8.6,8.1,8.6c9,0,14.4-5.5,16.4-7.6h0.2l-1.9,7h8.8l7.9-29.3h-8.7L117.5,26.6zM75.6,13.8c-9.1,0-14.5,5.5-16.5,7.6h-0.2l5.4-20.1h-8.7L44.2,43.7h8.7l3.3-12.2c1-3.6,6-13.1,14.6-13.1c4.4,0,4.3,3.3,3.3,7l-4.9,18.3h8.8l5.7-21.4C84.7,18.1,82.8,13.8,75.6,13.8zM250,6.1c0,3.1-2.4,5.5-5.4,5.5c-3,0-5.5-2.4-5.5-5.5c0-3,2.4-5.4,5.5-5.4h0C247.6,0.6,250,3,250,6.1zM249,6.1c0-2.6-2-4.6-4.4-4.6h0c-2.4,0-4.4,2.1-4.4,4.6c0,2.6,2,4.6,4.4,4.6C247,10.7,249,8.7,249,6.1zM246.6,7.7c0.1,1,0.3,1.3,0.4,1.5h-1c-0.1-0.2-0.3-0.8-0.4-1.5c-0.1-0.8-0.5-1.1-1.3-1.1h-0.7v2.6h0h-1V3.2c0.5-0.1,1-0.1,1.7-0.1c0.9,0,1.5,0.2,1.9,0.5c0.4,0.3,0.6,0.7,0.6,1.3c0,0.8-0.5,1.3-1.2,1.5v0C246.1,6.4,246.5,6.8,246.6,7.7zM245.7,4.8c0-0.5-0.4-1.1-1.5-1.1c-0.3,0-0.5,0-0.7,0.1v2h0.7C245,5.9,245.7,5.6,245.7,4.8zM195.5,1.3l-11.4,42.5h8.7l11.4-42.5C204.2,1.3,195.5,1.3,195.5,1.3zM238.6,25.8H214c-1.5,5.7-0.4,15.4,11.9,15.4c2.6,0,5.4-0.4,8.1-1.2l-0.7,2.8c-3.8,1-7.2,1.7-12.4,1.7c-11.4,0-19.3-4.8-16.1-16.6c2.2-8.1,8.3-14.1,21.3-14.1C239.4,13.7,240.1,20.1,238.6,25.8zM224.9,16.5c-6.7,0-9.3,4.9-9.9,6.5h15.8C231.4,20.7,231.4,16.5,224.9,16.5z" />
+						</g>
+					</svg>
+					<svg viewBox="0 0 250 45">
+						<mask id="mask">
+							<path id="logo" style="fill:#FFF;" d="M30.1,0.6c5.5,0,11.2,0.8,13.4,1.1l-1.5,5.8C40,6.7,34.4,4.7,28,4.7c-5.3,0-9.6,2.2-10.4,5.3c-2.4,9,25.7,8.7,22.1,21.9c-2.4,8.9-13,12.4-25,12.4c-6.7,0-13-1.1-14.7-1.6l1.8-6.6c2.4,1.1,8.6,3.7,15.6,3.7c6.2,0,11.2-1.8,12.3-6.1c2.6-9.6-25.6-9.1-22-22.3C9.5,4.6,17.7,0.6,30.1,0.6zM169.9,34.4l4.5-16.8h11.2l0.8-3.2h-11.2l2.9-10.7l-9.7,3.7l-1.9,6.9l-15.5,0l2.9-10.7l-9.7,3.7l-1.9,6.9h-6.6l-0.9,3.2h6.6l-5.2,19.3c-1.5,5.7,2.7,7.5,10.9,7.5c2,0,4.3-0.1,6.2-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5c-5.6,0-5.7-2.1-4.5-6.5l4.5-16.8l15.5,0l-5.2,19.3c-1.5,5.7,2.8,7.5,11,7.5c2,0,4.3-0.1,6.1-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5C168.7,40.9,168.7,38.8,169.9,34.4zM117.5,26.6c-1,3.6-6,13.1-14.6,13.1c-4.4,0-4.3-3.4-3.3-7l4.9-18.3h-8.8l-5.7,21.3c-1.2,4.3,0.8,8.6,8.1,8.6c9,0,14.4-5.5,16.4-7.6h0.2l-1.9,7h8.8l7.9-29.3h-8.7L117.5,26.6zM75.6,13.8c-9.1,0-14.5,5.5-16.5,7.6h-0.2l5.4-20.1h-8.7L44.2,43.7h8.7l3.3-12.2c1-3.6,6-13.1,14.6-13.1c4.4,0,4.3,3.3,3.3,7l-4.9,18.3h8.8l5.7-21.4C84.7,18.1,82.8,13.8,75.6,13.8zM250,6.1c0,3.1-2.4,5.5-5.4,5.5c-3,0-5.5-2.4-5.5-5.5c0-3,2.4-5.4,5.5-5.4h0C247.6,0.6,250,3,250,6.1zM249,6.1c0-2.6-2-4.6-4.4-4.6h0c-2.4,0-4.4,2.1-4.4,4.6c0,2.6,2,4.6,4.4,4.6C247,10.7,249,8.7,249,6.1zM246.6,7.7c0.1,1,0.3,1.3,0.4,1.5h-1c-0.1-0.2-0.3-0.8-0.4-1.5c-0.1-0.8-0.5-1.1-1.3-1.1h-0.7v2.6h0h-1V3.2c0.5-0.1,1-0.1,1.7-0.1c0.9,0,1.5,0.2,1.9,0.5c0.4,0.3,0.6,0.7,0.6,1.3c0,0.8-0.5,1.3-1.2,1.5v0C246.1,6.4,246.5,6.8,246.6,7.7zM245.7,4.8c0-0.5-0.4-1.1-1.5-1.1c-0.3,0-0.5,0-0.7,0.1v2h0.7C245,5.9,245.7,5.6,245.7,4.8zM195.5,1.3l-11.4,42.5h8.7l11.4-42.5C204.2,1.3,195.5,1.3,195.5,1.3zM238.6,25.8H214c-1.5,5.7-0.4,15.4,11.9,15.4c2.6,0,5.4-0.4,8.1-1.2l-0.7,2.8c-3.8,1-7.2,1.7-12.4,1.7c-11.4,0-19.3-4.8-16.1-16.6c2.2-8.1,8.3-14.1,21.3-14.1C239.4,13.7,240.1,20.1,238.6,25.8zM224.9,16.5c-6.7,0-9.3,4.9-9.9,6.5h15.8C231.4,20.7,231.4,16.5,224.9,16.5z" />
+						</mask>
+					</svg>
+					<svg viewBox="0 0 250 45">
+						<g id="scene" mask="url(#mask)">
+							<image data-depth="1.0" xlink:href="img/reflective_3.png" width="250" height="250" x="0" y="-25" />
+							<image data-depth="0.6" xlink:href="img/reflective_2.png" width="250" height="250" x="0" y="-25" />
+							<image data-depth="0.8" xlink:href="img/reflective_1.png" width="250" height="250" x="0" y="-25" />
+						</g>
+					</svg>
+				</a>
+			</div>
+			<!-- Content -->
+			<div class="row align-items-center no-title">
+				<div class="col boxmap">
+					<div class="boxmap-size">
+						<div class="boxmap-box room-1"></div>
+						<div class="boxmap-box room-2"></div>
+						<div class="boxmap-box room-3"></div>
+						<div class="boxmap-box room-4"></div>
+						<div class="boxmap-box room-5"></div>
+						<div class="boxmap-box room-6"></div>
+						<div class="radar hot-lv1 hs-1">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv1 hs-2">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv2 hs-3">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv3 hs-4">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv4 hs-5">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv5 hs-6">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+						<div class="radar hot-lv1 hs-7">
+							<div class="radar-content"></div>
+							<div class="radar-bg">
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="people"></div>
+								<div class="radar-scan"></div>
+							</div>
+							<div class="radar-hot"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col login">
+					<h1 data-title='IPS'>IPS</h1>
+					<form>
+						<div class="form-group">
+							<label for="inputEmail1">Email address</label>
+							<input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword1">Password</label>
+							<input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+							<small id="passwordHelp" class="form-text text-muted">
+								<a href="#" style="text-decoration: underline;">Forgot your password ?</a>
+							</small>
+						</div>
+						<div class="form-group">
+							<label for="inputLanguage">Login language</label>
+							<div class="form-row">
+								<div class="form-group col">
+									<select id="inputLanguage" class="form-control">
+										<option selected>English (en-US)</option>
+										<option>Français</option>
+										<option>Deutsche</option>
+										<option>日本語</option>
+										<option>Pусский</option>
+										<option>Español</option>
+										<option>简体中文</option>
+										<option>繁體中文</option>
+									</select>
+								</div>
+								<div class="form-group col-auto">
+									<button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt mr-1"></i>Login</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Overlay Black Background  -->
+	<div class="overlay"></div>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<!-- parallax.js 錯視 -->
+	<script src="js/parallax.min.js"></script>
+	<!-- jQuery custom content scroller -->
+	<script src="js/jquery.mCustomScrollbar.js"></script>
+	<!-- Popper -->
+	<script src="js/popper.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/temp.js"></script>
+	<!-- parallax.js 錯視 -->
+	<script src="js/parallax.min.js"></script>
+</body>
+
+</html>

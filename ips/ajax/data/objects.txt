@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Gateway_001",
+      "location": "System Architect",
+      "gatewayStatus": "ON",
+      "lightName": "{lightName_#11}",
+      "lightStatus": "ON",
+    },
+    {
+      "id": "2",
+      "name": "Gateway_002",
+      "location": "Accountant",
+      "gatewayStatus": "OFF",
+      "lightName": "{lightName_#21}",
+      "lightStatus": "ON",
+    {
+      "id": "3",
+      "name": "Gateway_003",
+      "location": "Junior Technical Author",
+      "gatewayStatus": "AUTO",
+      "lightName": "",
+      "lightStatus": "",
+    },
+  ]
+}

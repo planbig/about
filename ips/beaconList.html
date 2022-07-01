@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Beacon List</title>
+	<!-- favorite icon -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Bootstrap DateTimePicker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker3.min.css">
+	<!-- Bootstrap DataTable -->
+	<link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/fontawesome.all.css">
+	<!-- jQuery custom content scroller -->
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/temp.css">
+</head>
+
+<body>
+	<div id="beaconList-id" class="wrapper">
+		<!-- Side Menu -->
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h5>Admin Menu</h5>
+			</div>
+			<ul class="list-unstyled components scroll">
+				<p>Dashboard</p>
+				<li class="active">
+					<a href="liveMap.html"><i class="fas fa-map-marked-alt"></i>Live Map</a>
+				</li>
+				<li>
+					<a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false"><i class="fas fa-street-view"></i>Tracking<span class="ml-auto"><i class="fas fa-caret-down"></i></span>
+					</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu4">
+						<li>
+							<a href="trackingMember.html"><i>-</i>Member</a>
+						</li>
+						<li>
+							<a href="trackingGateway.html"><i>-</i>Gateway</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="eventList.html"><i class="fas fa-scroll"></i>Event</a>
+				</li>
+				<p>System</p>
+				<li>
+					<a href="locationList.html"><i class="fas fa-map-signs"></i>Location</a>
+				</li>
+				<li>
+					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false"><i class="fas fa-wifi"></i>Gateway management<span class="ml-auto"><i class="fas fa-caret-down"></i></span>
+					</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu3">
+						<li>
+							<a href="gatewayList.html"><i>-</i>list</a>
+						</li>
+						<li>
+							<a href="gatewaySwitch.html"><i>-</i>Switch</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false"><i class="fas fa-bullseye"></i>Beacon management<span class="ml-auto"><i class="fas fa-caret-down"></i></span>
+					</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu1">
+						<li>
+							<a href="beaconList.html"><i>-</i>list</a>
+						</li>
+						<li>
+							<a href="beaconGroup.html"><i>-</i>Group</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false"><i class="fas fa-user"></i>User management<span class="ml-auto"><i class="fas fa-caret-down"></i></span>
+					</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu2">
+						<li>
+							<a href="userWebsite.html"><i>-</i>Website user</a>
+						</li>
+						<li>
+							<a href="userMember.html"><i>-</i>Member</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="settings.html"><i class="fas fa-cogs"></i>Settings</a>
+				</li>
+			</ul>
+			<ul class="list-unstyled">
+				<li>
+					<a href="login.html">Logout<i class="fas fa-sign-out-alt"></i></a>
+				</li>
+			</ul>
+		</nav>
+		<div id="dismiss">
+			<button type="button" class="btn"><i class="fas fa-times"></i></button>
+		</div>
+		<!-- Header Navigation -->
+		<div id="content">
+			<div class="navbar navbar-expand-lg navbar-light justify-content-between">
+				<!-- LOGO -->
+				<a class="navbar-brand" href="http://www.shuttle.com/">
+					<svg viewBox="0 0 250 45">
+						<g>
+							<path id="logo" style="fill:#ffd57f;" d="M30.1,0.6c5.5,0,11.2,0.8,13.4,1.1l-1.5,5.8C40,6.7,34.4,4.7,28,4.7c-5.3,0-9.6,2.2-10.4,5.3c-2.4,9,25.7,8.7,22.1,21.9c-2.4,8.9-13,12.4-25,12.4c-6.7,0-13-1.1-14.7-1.6l1.8-6.6c2.4,1.1,8.6,3.7,15.6,3.7c6.2,0,11.2-1.8,12.3-6.1c2.6-9.6-25.6-9.1-22-22.3C9.5,4.6,17.7,0.6,30.1,0.6zM169.9,34.4l4.5-16.8h11.2l0.8-3.2h-11.2l2.9-10.7l-9.7,3.7l-1.9,6.9l-15.5,0l2.9-10.7l-9.7,3.7l-1.9,6.9h-6.6l-0.9,3.2h6.6l-5.2,19.3c-1.5,5.7,2.7,7.5,10.9,7.5c2,0,4.3-0.1,6.2-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5c-5.6,0-5.7-2.1-4.5-6.5l4.5-16.8l15.5,0l-5.2,19.3c-1.5,5.7,2.8,7.5,11,7.5c2,0,4.3-0.1,6.1-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5C168.7,40.9,168.7,38.8,169.9,34.4zM117.5,26.6c-1,3.6-6,13.1-14.6,13.1c-4.4,0-4.3-3.4-3.3-7l4.9-18.3h-8.8l-5.7,21.3c-1.2,4.3,0.8,8.6,8.1,8.6c9,0,14.4-5.5,16.4-7.6h0.2l-1.9,7h8.8l7.9-29.3h-8.7L117.5,26.6zM75.6,13.8c-9.1,0-14.5,5.5-16.5,7.6h-0.2l5.4-20.1h-8.7L44.2,43.7h8.7l3.3-12.2c1-3.6,6-13.1,14.6-13.1c4.4,0,4.3,3.3,3.3,7l-4.9,18.3h8.8l5.7-21.4C84.7,18.1,82.8,13.8,75.6,13.8zM250,6.1c0,3.1-2.4,5.5-5.4,5.5c-3,0-5.5-2.4-5.5-5.5c0-3,2.4-5.4,5.5-5.4h0C247.6,0.6,250,3,250,6.1zM249,6.1c0-2.6-2-4.6-4.4-4.6h0c-2.4,0-4.4,2.1-4.4,4.6c0,2.6,2,4.6,4.4,4.6C247,10.7,249,8.7,249,6.1zM246.6,7.7c0.1,1,0.3,1.3,0.4,1.5h-1c-0.1-0.2-0.3-0.8-0.4-1.5c-0.1-0.8-0.5-1.1-1.3-1.1h-0.7v2.6h0h-1V3.2c0.5-0.1,1-0.1,1.7-0.1c0.9,0,1.5,0.2,1.9,0.5c0.4,0.3,0.6,0.7,0.6,1.3c0,0.8-0.5,1.3-1.2,1.5v0C246.1,6.4,246.5,6.8,246.6,7.7zM245.7,4.8c0-0.5-0.4-1.1-1.5-1.1c-0.3,0-0.5,0-0.7,0.1v2h0.7C245,5.9,245.7,5.6,245.7,4.8zM195.5,1.3l-11.4,42.5h8.7l11.4-42.5C204.2,1.3,195.5,1.3,195.5,1.3zM238.6,25.8H214c-1.5,5.7-0.4,15.4,11.9,15.4c2.6,0,5.4-0.4,8.1-1.2l-0.7,2.8c-3.8,1-7.2,1.7-12.4,1.7c-11.4,0-19.3-4.8-16.1-16.6c2.2-8.1,8.3-14.1,21.3-14.1C239.4,13.7,240.1,20.1,238.6,25.8zM224.9,16.5c-6.7,0-9.3,4.9-9.9,6.5h15.8C231.4,20.7,231.4,16.5,224.9,16.5z" />
+						</g>
+					</svg>
+					<svg viewBox="0 0 250 45">
+						<mask id="mask">
+							<path id="logo" style="fill:#FFF;" d="M30.1,0.6c5.5,0,11.2,0.8,13.4,1.1l-1.5,5.8C40,6.7,34.4,4.7,28,4.7c-5.3,0-9.6,2.2-10.4,5.3c-2.4,9,25.7,8.7,22.1,21.9c-2.4,8.9-13,12.4-25,12.4c-6.7,0-13-1.1-14.7-1.6l1.8-6.6c2.4,1.1,8.6,3.7,15.6,3.7c6.2,0,11.2-1.8,12.3-6.1c2.6-9.6-25.6-9.1-22-22.3C9.5,4.6,17.7,0.6,30.1,0.6zM169.9,34.4l4.5-16.8h11.2l0.8-3.2h-11.2l2.9-10.7l-9.7,3.7l-1.9,6.9l-15.5,0l2.9-10.7l-9.7,3.7l-1.9,6.9h-6.6l-0.9,3.2h6.6l-5.2,19.3c-1.5,5.7,2.7,7.5,10.9,7.5c2,0,4.3-0.1,6.2-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5c-5.6,0-5.7-2.1-4.5-6.5l4.5-16.8l15.5,0l-5.2,19.3c-1.5,5.7,2.8,7.5,11,7.5c2,0,4.3-0.1,6.1-0.4l1-3.6c-1.3,0.3-2.8,0.5-4.2,0.5C168.7,40.9,168.7,38.8,169.9,34.4zM117.5,26.6c-1,3.6-6,13.1-14.6,13.1c-4.4,0-4.3-3.4-3.3-7l4.9-18.3h-8.8l-5.7,21.3c-1.2,4.3,0.8,8.6,8.1,8.6c9,0,14.4-5.5,16.4-7.6h0.2l-1.9,7h8.8l7.9-29.3h-8.7L117.5,26.6zM75.6,13.8c-9.1,0-14.5,5.5-16.5,7.6h-0.2l5.4-20.1h-8.7L44.2,43.7h8.7l3.3-12.2c1-3.6,6-13.1,14.6-13.1c4.4,0,4.3,3.3,3.3,7l-4.9,18.3h8.8l5.7-21.4C84.7,18.1,82.8,13.8,75.6,13.8zM250,6.1c0,3.1-2.4,5.5-5.4,5.5c-3,0-5.5-2.4-5.5-5.5c0-3,2.4-5.4,5.5-5.4h0C247.6,0.6,250,3,250,6.1zM249,6.1c0-2.6-2-4.6-4.4-4.6h0c-2.4,0-4.4,2.1-4.4,4.6c0,2.6,2,4.6,4.4,4.6C247,10.7,249,8.7,249,6.1zM246.6,7.7c0.1,1,0.3,1.3,0.4,1.5h-1c-0.1-0.2-0.3-0.8-0.4-1.5c-0.1-0.8-0.5-1.1-1.3-1.1h-0.7v2.6h0h-1V3.2c0.5-0.1,1-0.1,1.7-0.1c0.9,0,1.5,0.2,1.9,0.5c0.4,0.3,0.6,0.7,0.6,1.3c0,0.8-0.5,1.3-1.2,1.5v0C246.1,6.4,246.5,6.8,246.6,7.7zM245.7,4.8c0-0.5-0.4-1.1-1.5-1.1c-0.3,0-0.5,0-0.7,0.1v2h0.7C245,5.9,245.7,5.6,245.7,4.8zM195.5,1.3l-11.4,42.5h8.7l11.4-42.5C204.2,1.3,195.5,1.3,195.5,1.3zM238.6,25.8H214c-1.5,5.7-0.4,15.4,11.9,15.4c2.6,0,5.4-0.4,8.1-1.2l-0.7,2.8c-3.8,1-7.2,1.7-12.4,1.7c-11.4,0-19.3-4.8-16.1-16.6c2.2-8.1,8.3-14.1,21.3-14.1C239.4,13.7,240.1,20.1,238.6,25.8zM224.9,16.5c-6.7,0-9.3,4.9-9.9,6.5h15.8C231.4,20.7,231.4,16.5,224.9,16.5z" />
+						</mask>
+					</svg>
+					<svg viewBox="0 0 250 45">
+						<g id="scene" mask="url(#mask)">
+							<image data-depth="1.0" xlink:href="img/reflective_3.png" width="250" height="250" x="0" y="-25" />
+							<image data-depth="0.6" xlink:href="img/reflective_2.png" width="250" height="250" x="0" y="-25" />
+							<image data-depth="0.8" xlink:href="img/reflective_1.png" width="250" height="250" x="0" y="-25" />
+						</g>
+					</svg>
+				</a>
+				<div>
+					<button type="button" class="btn" data-toggle="modal" data-target="#notificationModal">Notification<span><i class="fas fa-bell ml-1"></i></span></button>
+					<button type="button" id="sidebarCollapse" class="btn"><i class="fas fa-align-left"></i></button>
+				</div>
+			</div>
+			<!-- Content:body -->
+			<div class="row title">
+				<div class="col-auto">
+					<h3><i class="fas fa-bullseye mr-2"></i>Beacon</h3>
+				</div>
+				<div class="col full-tabs">
+					<ul class="nav nav-tabs justify-content-end">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">List</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Group</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- Content -->
+			<div class="row have-title">
+				<div class="col">
+					<div class="col-auto list-btn">
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="fas fa-file-import mr-1"></i>Import</button>
+                            <button class="btn btn-primary"><i class="fas fa-file-export mr-1"></i>Export</button>
+                            <button class="btn btn-primary"><i class="fas fa-file-download mr-1"></i>Template</button>
+                        </div>
+						<button class="btn btn-primary" data-toggle="modal" data-target="#newBeaconModal"><i class="fas fa-plus mr-1"></i>New</button>
+					</div>
+					<table id="beaconList" class="table table-striped">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Group</th>
+								<th>UUID</th>
+								<th>Major</th>
+								<th>Minor</th>
+								<th>User</th>
+								<th>Creat time</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>aBeacon_001</td>
+								<td>Xhuttle</td>
+								<td>450e8400-e29b-41d4-a716-446655440000</td>
+								<td>1</td>
+								<td>55</td>
+								<td>Aill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+							<tr>
+								<td>Beacon_001</td>
+								<td>Shuttle</td>
+								<td>550e8400-e29b-41d4-a716-446655440000</td>
+								<td>0</td>
+								<td>45</td>
+								<td>Bill Lee</td>
+								<td>12/10/2018 @ 6:39am</td>
+								<td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editBeaconModal"><i class="fa fa-edit"></i></button></td>
+								<td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBeaconModal"><i class="fa fa-trash-alt"></i></button></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Name</th>
+								<th>Group</th>
+								<th>UUID</th>
+								<th>Major</th>
+								<th>Minor</th>
+								<th>User</th>
+								<th>Creat time</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal:Notification -->
+	<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-gateway-tab" data-toggle="pill" href="#pills-gateway" role="tab" aria-controls="ills-gateway" aria-selected="true">
+								Gateway
+								<span class="badge badge-light">4</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-beacon-tab" data-toggle="pill" href="#pills-beacon" role="tab" aria-controls="pills-beacon" aria-selected="false">
+								Beacon
+								<span class="badge badge-light">4</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-security-tab" data-toggle="pill" href="#pills-security" role="tab" aria-controls="pills-security" aria-selected="false">
+								Security
+								<span class="badge badge-light">4</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></li>
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-gateway" role="tabpanel" aria-labelledby="pills-gateway-tab">
+							<table class="table table-hover" id="notifyGateway">
+								<thead class="d-none">
+									<tr>
+										<th scope="col">Description</th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th scope="col">Time</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th colspan="5" scope="row">
+											{gatwayName} is offline. test test test test test test test test test test test test test test test test
+											test test test test test test test test test test test test test
+										</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{gatwayName} is offline.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{gatwayName} is offline.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="pills-beacon" role="tabpanel" aria-labelledby="pills-beacon-tab">
+							<table class="table table-hover" id="notifyBeacon">
+								<thead class="d-none">
+									<tr>
+										<th scope="col">Description</th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th scope="col">Time</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th colspan="5" scope="row">
+											{beaconName} battery is getting low. test test test test test test test test test test test test test test
+											test test test test test test test test test test test test test test test
+										</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{beaconName} battery is getting low.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{beaconName} battery is getting low.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+							<table class="table table-hover" id="notifySecurity">
+								<thead class="d-none">
+									<tr>
+										<th scope="col">Description</th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th scope="col">Time</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th colspan="5" scope="row">
+											{memberName} is near by {gatewayName}. test test test test test test test test test test test test test test
+											test test test test test test test test test test test test test test test
+										</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{memberName} is near by {gatewayName}.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+									<tr>
+										<th colspan="5" scope="row">{memberName} is near by {gatewayName}.</th>
+										<td>12/10/2018 @ 6:39am</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal:New Location -->
+	<div class="modal fade" id="newBeaconModal" tabindex="-1" role="dialog" aria-labelledby="newBeaconModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="newBeaconModalTitle">New Beacon</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="beaconNameInput1">Name</label>
+							<input type="text" class="form-control" id="beaconNameInput1" placeholder="Beacon Name">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="beaconGroupSelect1">Groups</label>
+								<select class="form-control" id="beaconGroupSelect1">
+									<option value="" selected hidden>Select...</option>
+									<option value="new">New Group</option>
+									<option value="456e8400-789b-41d8-a713-446655440001">Shuttle</option>
+									<option value="2e456895-789b-41d8-a713-446655440003">AprilBrother</option>
+									<option value="356e8400-789b-41d8-a713-446655440002">THLight</option>
+									<option value="056e8400-789b-41d8-a713-446655440005">CampusB</option>
+								</select>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="UUIDInput1">UUID</label>
+								<input type="text" class="form-control-plaintext" id="UUIDInput1" value="" disabled>
+							</div>
+						</div>
+						<div class="collapse" id="collapseNewGroup1">
+							<div class="form-row">
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="newBeaconGroupInput1" placeholder="Group Name">
+								</div>
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="newUUIDInput1" placeholder="NEW UUID">
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="majorInput1">Major</label>
+								<input type="text" class="form-control" id="majorInput1" placeholder="Major">
+							</div>
+							<div class="form-group col-md-8">
+								<label for="minorInput1">Minor</label>
+								<input type="text" class="form-control" id="minorInput1" placeholder="Minor">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Add</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal:Edit Location -->
+	<div class="modal fade" id="editBeaconModal" tabindex="-1" role="dialog" aria-labelledby="editBeaconModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editBeaconModalTitle">Edit Beacon</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="beaconNameInput2">Name</label>
+							<input type="text" class="form-control" id="beaconNameInput2" placeholder="Beacon Name" value="Beaonc_#001">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="beaconGroupSelect2">Groups</label>
+								<select class="form-control" id="beaconGroupSelect2">
+									<option value="" hidden>Select...</option>
+									<option value="new">New Group</option>
+									<option value="456e8400-789b-41d8-a713-446655440001" selected>Shuttle</option>
+									<option value="2e456895-789b-41d8-a713-446655440003">AprilBrother</option>
+									<option value="356e8400-789b-41d8-a713-446655440002">THLight</option>
+									<option value="056e8400-789b-41d8-a713-446655440005">CampusB</option>
+								</select>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="UUIDInput2">UUID</label>
+								<input type="text" class="form-control-plaintext" id="UUIDInput2" value="456e8400-789b-41d8-a713-446655440001" disabled>
+							</div>
+						</div>
+						<div class="collapse" id="collapseNewGroup2">
+							<div class="form-row">
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="newBeaconGroupInput2" placeholder="Group Name">
+								</div>
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="newUUIDInput2" placeholder="NEW UUID">
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="majorInput1">Major</label>
+								<input type="text" class="form-control" id="majorInput2" placeholder="Major" value="0">
+							</div>
+							<div class="form-group col-md-8">
+								<label for="minorInput1">Minor</label>
+								<input type="text" class="form-control" id="minorInput2" placeholder="Minor" value="45">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal:Delete Gateway -->
+	<div class="modal fade" id="deleteBeaconModal" tabindex="-1" role="dialog" aria-labelledby="deleteBeaconModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteBeaconModalTitle">Delete Beacon</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to delete {beaconName}?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger">Delete</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Overlay Black Background  -->
+	<div class="overlay"></div>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<!-- parallax.js 錯視 -->
+	<script src="js/parallax.min.js"></script>
+	<!-- jQuery custom content scroller -->
+	<script src="js/jquery.mCustomScrollbar.js"></script>
+	<!-- Popper -->
+	<script src="js/popper.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/temp.js"></script>
+	<!-- DataTables -->
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/buttons.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="js/buttons.html5.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#beaconList').DataTable({
+            "dom": '<"row"<"col-sm-12 col-md-6"f><"col-sm-12 col-md-6"l>><"row"<"col-sm-12"t>><"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+            "scrollY": true,
+            "scrollCollapse": true,
+        });
+    });
+    </script>
+	<script>
+	$('#beaconGroupSelect1').change(function() {
+		var selectedText = $(this).find("option:selected").val();
+		$("#UUIDInput1").val(selectedText);
+		$('#newBeaconGroupInput1').val("");
+		$('#newUUIDInput1').val("");
+		$('#collapseNewGroup1').collapse('hide');
+
+		if ($(this).val() === 'new') {
+			$('#beaconGroupSelect1 option:first').prop('selected', true);
+			$("#UUIDInput1").val("")
+			$('#collapseNewGroup1').collapse('show');
+		}
+	});
+	$('#beaconGroupSelect2').change(function() {
+		var selectedText = $(this).find("option:selected").val();
+		$("#UUIDInput2").val(selectedText);
+		$('#newBeaconGroupInput2').val("");
+		$('#newUUIDInput2').val("");
+		$('#collapseNewGroup2').collapse('hide');
+
+		if ($(this).val() === 'new') {
+			$('#beaconGroupSelect2 option:first').prop('selected', true);
+			$("#UUIDInput2").val("")
+			$('#collapseNewGroup2').collapse('show');
+		}
+	});
+	</script>
+</body>
+
+</html>
